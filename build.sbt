@@ -10,19 +10,19 @@ val classpathDependencies: String = "compile->compile;test->test;"
 lazy val common = (project in file("modules/common"))
   .settings(
     name := "common",
-    libraryDependencies ++= cats ++ testDependencies ++ circe ++ playJson ++ jsoniter ++ logback,
+    libraryDependencies ++= cats ++ testDependencies ++ circe ++ logging,
   )
 
-lazy val catsEffectTask = (project in file("modules/cats-effect-task"))
+lazy val catsEffectServer = (project in file("modules/cats-effect-server"))
   .settings(
-    name := "cats-effect-task",
+    name := "cats-effect-server",
     libraryDependencies ++= catsEffect ++ http4s,
   )
   .dependsOn(common % classpathDependencies)
 
-lazy val pekkoTask = (project in file("modules/pekko-task"))
+lazy val pekkoServer = (project in file("modules/pekko-server"))
   .settings(
-    name := "pekko-task",
+    name := "pekko-server",
     libraryDependencies ++= pekko,
   )
   .dependsOn(common % classpathDependencies)
@@ -31,4 +31,4 @@ lazy val root = (project in file("."))
   .settings(
     name := "scala-interview-endpoints",
   )
-  .aggregate(catsEffectTask)
+  .aggregate(common, catsEffectServer, pekkoServer)

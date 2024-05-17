@@ -20,15 +20,18 @@ object Dependencies {
     "org.http4s" %% "http4s-dsl"          % htps4sVersion,
   )
 
-  val logbackVersion = "1.5.6"
-  val logback = Seq(
-    "ch.qos.logback" % "logback-classic" % logbackVersion,
+  val scalaLoggingVersion = "3.9.5"
+  val logbackVersion      = "1.5.6"
+  val logging = Seq(
+    "ch.qos.logback"              % "logback-classic" % logbackVersion,
+    "com.typesafe.scala-logging" %% "scala-logging"   % scalaLoggingVersion,
   )
 
   val munitVersion           = "0.7.29"
   val munitCatsEffectVersion = "1.0.7"
   val specs2Version          = "4.20.6"
   val scalacheckVersion      = "1.18.0"
+  val scalaTestVersion       = "3.2.18"
   val testDependencies = Seq(
     "org.specs2"     %% "specs2-core"          % specs2Version          % Test,
     "org.specs2"     %% "specs2-matcher-extra" % specs2Version          % Test,
@@ -38,6 +41,8 @@ object Dependencies {
     "org.scalacheck" %% "scalacheck"           % scalacheckVersion      % Test,
     "org.scalameta"  %% "munit"                % munitVersion           % Test,
     "org.typelevel"  %% "munit-cats-effect-3"  % munitCatsEffectVersion % Test,
+    "org.scalactic"  %% "scalactic"            % scalaTestVersion       % Test,
+    "org.scalatest"  %% "scalatest"            % scalaTestVersion       % Test,
   )
 
   val circeVersion = "0.14.7"
@@ -58,9 +63,15 @@ object Dependencies {
     "com.typesafe.play" %% "play-json" % playJsonVersion,
   )
 
-  val pekkoHttpVersion = "1.0.1"
+  val pekkoHttpVersion  = "1.0.1"
+  val pekkoVersion      = "1.0.2"
+  val pekkoCirceVersion = "2.5.0"
   val pekko = Seq(
-    "org.apache.pekko" %% "pekko-http"         % pekkoHttpVersion,
-    "org.apache.pekko" %% "pekko-http-testkit" % pekkoHttpVersion % "test",
+    "org.apache.pekko"     %% "pekko-http"         % pekkoHttpVersion,
+    "org.apache.pekko"     %% "pekko-actor"        % pekkoVersion,
+    "org.apache.pekko"     %% "pekko-stream"       % pekkoVersion,
+    "com.github.pjfanning" %% "pekko-http-circe"   % pekkoCirceVersion,
+    "org.apache.pekko"     %% "pekko-http-testkit" % pekkoHttpVersion % Test,
+    "org.apache.pekko"     %% "pekko-testkit"      % pekkoVersion     % Test,
   )
 }

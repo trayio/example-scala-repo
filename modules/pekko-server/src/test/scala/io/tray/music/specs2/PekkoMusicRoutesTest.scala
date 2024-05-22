@@ -16,10 +16,10 @@ class PekkoMusicRoutesTest extends Specification with Specs2RouteTest {
 
   "Service" should {
     "fetch artist" in {
-      Get(s"/artist/Epica") ~> routes ~> check {
+      Get(s"/artist/epica") ~> routes ~> check {
         status shouldEqual OK
         contentType shouldEqual `application/json`
-        responseAs[Artist] shouldEqual Artist("Epica", LocalDate.of(2023, 11, 1))
+        responseAs[Artist] shouldEqual Artist("epica", LocalDate.of(2023, 11, 1))
       }
     }
   }

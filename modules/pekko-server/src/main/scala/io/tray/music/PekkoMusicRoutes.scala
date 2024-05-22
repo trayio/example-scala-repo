@@ -15,8 +15,7 @@ class PekkoMusicRoutes {
 
   private val repository: ArtistRepository[Future] = new PekkoArtistRepository
 
-  val routes: Route = logRequestResult("pekko-server") {
-
+  val routes: Route =
     pathPrefix("artist") {
       (get & path(Segment)) { artist =>
         complete {
@@ -26,7 +25,5 @@ class PekkoMusicRoutes {
         }
       }
     }
-
-  }
 
 }

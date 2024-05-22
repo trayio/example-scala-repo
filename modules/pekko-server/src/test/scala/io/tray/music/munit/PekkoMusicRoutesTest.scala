@@ -26,10 +26,10 @@ class PekkoMusicRoutesTest extends FunSuite with MUnitRouteTest {
   val routes = new PekkoMusicRoutes().routes
 
   test("Service should fetch artist") {
-    Get(s"/artist/Epica") ~> routes ~> check {
+    Get(s"/artist/epica") ~> routes ~> check {
       assertEquals(status, OK)
       assertEquals(contentType, `application/json`)
-      assertEquals(responseAs[Artist], Artist("Epica", LocalDate.of(2023, 11, 1)))
+      assertEquals(responseAs[Artist], Artist("epica", LocalDate.of(2023, 11, 1)))
     }
   }
 

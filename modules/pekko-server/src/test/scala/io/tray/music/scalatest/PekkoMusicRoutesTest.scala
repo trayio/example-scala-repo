@@ -16,10 +16,10 @@ class PekkoMusicRoutesTest extends AsyncFlatSpec with ScalatestRouteTest {
   val routes = new PekkoMusicRoutes().routes
 
   "Service" should "fetch artist" in {
-    Get(s"/artist/Epica") ~> routes ~> check {
+    Get(s"/artist/epica") ~> routes ~> check {
       status shouldBe OK
       contentType shouldBe `application/json`
-      responseAs[Artist] shouldBe Artist("Epica", LocalDate.of(2023, 11, 1))
+      responseAs[Artist] shouldBe Artist("epica", LocalDate.of(2023, 11, 1))
     }
   }
 

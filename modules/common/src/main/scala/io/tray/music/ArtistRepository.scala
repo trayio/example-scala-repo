@@ -9,7 +9,7 @@ trait ArtistRepository[F[_]] {
 object ArtistRepository {
 
   val data: Map[String, Artist] = Map(
-    "epica"    -> Artist("Epica", LocalDate.of(2023, 11, 1)),
+    "epica"    -> Artist("epica", LocalDate.of(2023, 11, 1)),
     "doja cat" -> Artist("Doja Cat", LocalDate.of(2024, 1, 5)),
   )
 

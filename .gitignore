@@ -4,3 +4,7 @@ target/
 .idea/
 .bsp/
 .bloop/
+.vscode/
+.metals/
+**/metals.sbt
+project/project/
